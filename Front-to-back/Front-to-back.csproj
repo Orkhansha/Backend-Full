@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Front_to_back</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20221107142948_CreateCategoryTables.cs" />
+    <Compile Remove="Migrations\20221107142948_CreateCategoryTables.Designer.cs" />
+    <Compile Remove="Migrations\20221108122018_DeleteFullnameColumn.cs" />
+    <Compile Remove="Migrations\20221108122018_DeleteFullnameColumn.Designer.cs" />
+    <Compile Remove="Migrations\20221108122524_Addusernamecolumne.cs" />
+    <Compile Remove="Migrations\20221108122524_Addusernamecolumne.Designer.cs" />
+    <Compile Remove="Migrations\20221108123101_Addusernamecolumne.cs" />
+    <Compile Remove="Migrations\20221108123101_Addusernamecolumne.Designer.cs" />
+    <Compile Remove="Migrations\20221108130934_Addusernamecolumness.cs" />
+    <Compile Remove="Migrations\20221108130934_Addusernamecolumness.Designer.cs" />
+    <Compile Remove="Migrations\20221108131235_Addusernamecolumne.cs" />
+    <Compile Remove="Migrations\20221108131235_Addusernamecolumne.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\admin\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="3.4.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.30" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.30" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.30">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.30" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.30">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,336 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<main>
+    <!-- hero slider section start -->
+    <section class="hero-slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="hero-slider-active slick-arrow-style slick-arrow-style_hero slick-dot-style">
+                        <!-- single slider item start -->
+                        @foreach (var item in Model.Sliders)
+                        {
+                            <div class="hero-single-slide">
+                                <div class="hero-slider-item bg-img" data-bg="assets/img/slider/@item.Image">
+                                    <div class="hero-slider-content slide-1">
+                                        <h5 class="slide-subtitle">@item.Title</h5>
+                                        <h2 class="slide-title">@item.Header</h2>
+                                        <p class="slide-desc">@item.Description</p>
+                                        <a asp-controller="Shop" asp-action="Index" class="btn btn-hero">SHOP NOW</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <!-- single slider item end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- hero slider section end -->
+    <!-- service features start -->
+    <section class="service-policy-area">
+        <div class="container">
+            <div class="row">
+                <!-- single policy item start -->
+                @foreach (var item in Model.Services)
+                {
+                    <div class="col-lg-4">
+                        <div class="service-policy-item mt-30 bg-1">
+                            <div class="policy-icon">
+                                <img src="~/assets/img/icon/@item.Icon" alt="policy icon">
+                            </div>
+                            <div class="policy-content">
+                                <h5 class="policy-title">@item.Title</h5>
+                                <p class="policy-desc">@item.Description</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+            </div>
+        </div>
+    </section>
+    <!-- service features end -->
+    <!-- our product area start -->
+    <section class="our-product section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title text-center">
+                        <h2 class="title">Our Product</h2>
+                        <p class="sub-title">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="product-carousel-4 mbn-50 slick-row-15 slick-arrow-style">
+                        <!-- product single item start -->
+                        <partial name="_ProductPartial" model="@Model.Products" />
+                        <!-- product single item start -->
+                        <!-- product single item start -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- our product area end -->
+
+    <!-- banner statistic area start -->
+    <div class="banner-statistics">
+        <div class="container">
+            <div class="row no-gutters mtn-30">
+                @foreach (var item in Model.Banners)
+                {
+                    <div class="col-md-6">
+                        <div class="img-container mt-30">
+                            <a asp-controller="Product" asp-action="Index">
+                                <img src="~/assets/img/banner/@item.Image" alt="banner-image">
+                            </a>
+                            <div class="banner-text">
+                                <h5 class="banner-subtitle">@item.Subtitle</h5>
+                                @Html.Raw(item.Title)
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    <!-- banner statistic area end -->
+    <!-- top seller area start -->
+    <section class="top-seller-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title text-center">
+                        <h2 class="title">top seller</h2>
+                        <p class="sub-title">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-lg-5 col-md-5">
+                    <div class="product-banner">
+                        <a href="#">
+                            <img src="~/assets/img/banner/banner-3.jpg" alt="product banner">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-7 col-md-7">
+                    <div class="top-seller-carousel slick-row-15 mtn-30">
+                        @foreach (var item in Model.Products.Take(10))
+                        {
+
+                        <!-- product item start -->
+                        <div class="slide-item">
+                            <div class="pro-item-small mt-30">
+                                <div class="product-thumb">
+                                    <a asp-controller="Product" asp-action="detail" asp-route-id="@item.Id">
+                                        <img src="~/assets/img/product/@item.Image" alt="">
+                                    </a>
+                                </div>
+                                <div class="pro-small-content">
+                                    <h6 class="product-name">
+                                        <a asp-controller="Product" asp-action="detail" asp-route-id="@item.Id">Simple Fabric Shoe</a>
+                                    </h6>
+                                    <div class="price-box">
+                                        <span class="price-regular">$@item.Price</span>
+                                        <span class="price-old"><del>$@item.Discount</del></span>
+                                    </div>
+                                    <div class="ratings">
+                                        <span><i class="ion-android-star"></i></span>
+                                        <span><i class="ion-android-star"></i></span>
+                                        <span><i class="ion-android-star"></i></span>
+                                        <span><i class="ion-android-star"></i></span>
+                                        <span><i class="ion-android-star"></i></span>
+                                    </div>
+                                    <div class="product-link-2">
+                                        <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
+                                        <a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
+                                        <a href="#" data-toggle="modal" data-target="#quick_view">
+                                            <span data-toggle="tooltip"
+                                                  title="Quick View"><i class="ion-ios-eye-outline"></i></span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- product item start -->
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- top seller area end -->
+    <!-- latest blog area start -->
+    <section class="latest-blog-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title text-center">
+                        <h2 class="title">@Model.BlogHead.Title</h2>
+                        <p class="sub-title">@Model.BlogHead.Description</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="blog-carousel-active slick-row-15">
+                        <!-- blog single item start -->
+                        @foreach (var item in Model.Blogs)
+                        {
+                            <div class="blog-post-item">
+                                <div class="blog-thumb">
+                                    <a asp-controller="Blog" asp-action="BlogDetails">
+                                        <img src="~/assets/img/blog/@item.Image" alt="blog thumb">
+                                    </a>
+                                </div>
+                                <div class="blog-content">
+                                    <h5 class="blog-title">
+                                        <a asp-controller="Blog" asp-action="BlogDetails">
+                                            @item.Title
+                                        </a>
+                                    </h5>
+                                    <ul class="blog-meta">
+                                        <li>@item.Creator</li>
+                                        <li>@item.CreateTime</li>
+                                    </ul>
+                                    <a asp-controller="Blog" asp-action="BlogDetails" class="read-more">Read More...</a>
+                                </div>
+                            </div>
+                        }
+                        <!-- blog single item start -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- latest blog area end -->
+    <!-- brand area start -->
+    <div class="brand-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="brand-active-carousel">
+                        @foreach (var item in Model.Brands)
+                        {
+                            <div class="brand-item">
+                                <a href="#">
+                                    <img src="~/assets/img/brand/@item.Image" alt="brand image">
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- brand area end -->
+</main>
+<!-- main wrapper end -->
+<!-- Quick view modal start -->
+<div class="modal" id="quick_view">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- product details inner end -->
+                <div class="product-details-inner">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="product-large-slider mb-20">
+                                <div class="pro-large-img img-zoom">
+                                    <img src="~/assets/img/product/product-details-img1.jpg" alt="product thumb" />
+                                </div>
+                                <div class="pro-large-img img-zoom">
+                                    <img src="~/assets/img/product/product-details-img2.jpg" alt="product thumb" />
+                                </div>
+                                <div class="pro-large-img img-zoom">
+                                    <img src="~/assets/img/product/product-details-img3.jpg" alt="product thumb" />
+                                </div>
+                                <div class="pro-large-img img-zoom">
+                                    <img src="~/assets/img/product/product-details-img4.jpg" alt="product thumb" />
+                                </div>
+                            </div>
+                            <div class="pro-nav slick-row-5">
+                                <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img1.jpg" alt="" /></div>
+                                <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img2.jpg" alt="" /></div>
+                                <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img3.jpg" alt="" /></div>
+                                <div class="pro-nav-thumb"><img src="~/assets/img/product/product-details-img4.jpg" alt="" /></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="product-details-des">
+                                <h3 class="pro-det-title">Primitive Mens Premium Shoes</h3>
+                                <div class="pro-review">
+                                    <span><a href="#">1 Review(s)</a></span>
+                                </div>
+                                <div class="price-box">
+                                    <span class="regular-price">$70.00</span>
+                                    <span class="old-price"><del>$80.00</del></span>
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                                <div class="quantity-cart-box d-flex align-items-center mb-20">
+                                    <div class="quantity">
+                                        <div class="pro-qty"><input type="text" value="1"></div>
+                                    </div>
+                                    <a asp-controller="Basket" asp-action="Index" class="btn btn-default">Add To Cart</a>
+                                </div>
+                                <div class="availability mb-20">
+                                    <h5 class="cat-title">Availability:</h5>
+                                    <span>In Stock</span>
+                                </div>
+                                <div class="share-icon">
+                                    <h5 class="cat-title">Share:</h5>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- product details inner end -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Quick view modal end -->
+
+@section ScriptsJs{
+    <script>
+        $(document).on("click", ".add-to-cart", function () {
+            console.log("ok")
+
+            let productId = parseInt($(this).closest(".product-item").children(0).val());
+            let data = { id: productId };
+
+
+            $.ajax({
+                url: "/basket/addbasket",
+                type: "POST",
+                data: data,
+                contentType: "application/x-www-form-urlencoded",
+                success: function (res) {
+
+                    //Swal.fire(
+                    //	'Good job!',
+                    //	'Product added',
+                    //	'success'
+                    //)
+                }
+            })
+
+        });
+    </script>
+ }

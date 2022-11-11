@@ -1,0 +1,29 @@
+﻿@model Product
+ 
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container my-5">
+    <div class="card">
+        <div class="card-header">
+            Product detail
+        </div>
+       
+            <div class="card-body">
+                <img src="~/assets/img/@Model.Image" />
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.Title</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.Price</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.Discount</p>
+            </div>
+
+    </div>
+</div>
+
+

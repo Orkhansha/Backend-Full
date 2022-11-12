@@ -50,7 +50,7 @@
                         </div>
                     </div>
                 }
-                
+
             </div>
         </div>
     </section>
@@ -79,7 +79,6 @@
         </div>
     </section>
     <!-- our product area end -->
-
     <!-- banner statistic area start -->
     <div class="banner-statistics">
         <div class="container">
@@ -127,41 +126,44 @@
                         @foreach (var item in Model.Products.Take(10))
                         {
 
-                        <!-- product item start -->
-                        <div class="slide-item">
-                            <div class="pro-item-small mt-30">
-                                <div class="product-thumb">
-                                    <a asp-controller="Product" asp-action="detail" asp-route-id="@item.Id">
-                                        <img src="~/assets/img/product/@item.Image" alt="">
-                                    </a>
-                                </div>
-                                <div class="pro-small-content">
-                                    <h6 class="product-name">
-                                        <a asp-controller="Product" asp-action="detail" asp-route-id="@item.Id">Simple Fabric Shoe</a>
-                                    </h6>
-                                    <div class="price-box">
-                                        <span class="price-regular">$@item.Price</span>
-                                        <span class="price-old"><del>$@item.Discount</del></span>
-                                    </div>
-                                    <div class="ratings">
-                                        <span><i class="ion-android-star"></i></span>
-                                        <span><i class="ion-android-star"></i></span>
-                                        <span><i class="ion-android-star"></i></span>
-                                        <span><i class="ion-android-star"></i></span>
-                                        <span><i class="ion-android-star"></i></span>
-                                    </div>
-                                    <div class="product-link-2">
-                                        <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                                        <a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
-                                        <a href="#" data-toggle="modal" data-target="#quick_view">
-                                            <span data-toggle="tooltip"
-                                                  title="Quick View"><i class="ion-ios-eye-outline"></i></span>
+                            <!-- product item start -->
+                            <div class="slide-item">
+                                <div class="pro-item-small mt-30">
+                                    <div class="product-thumb">
+                                        <a asp-controller="Product" asp-action="detail" asp-route-id="@item.Id"  asp-route-categoryId="@foreach (var category in item.ProductCategories)
+                                                                                                               {
+                                                                                                                   @category.Category.Id
+                                                                                                               }">
+                                            <img src="~/assets/img/product/@item.Image" alt="">
                                         </a>
+                                    </div>
+                                    <div class="pro-small-content">
+                                        <h6 class="product-name">
+                                            <a asp-controller="Product" asp-action="detail" asp-route-id="@item.Id">Simple Fabric Shoe</a>
+                                        </h6>
+                                        <div class="price-box">
+                                            <span class="price-regular">$@item.Price</span>
+                                            <span class="price-old"><del>$@item.Discount</del></span>
+                                        </div>
+                                        <div class="ratings">
+                                            <span><i class="ion-android-star"></i></span>
+                                            <span><i class="ion-android-star"></i></span>
+                                            <span><i class="ion-android-star"></i></span>
+                                            <span><i class="ion-android-star"></i></span>
+                                            <span><i class="ion-android-star"></i></span>
+                                        </div>
+                                        <div class="product-link-2">
+                                            <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
+                                            <a asp-controller="basket" asp-action="addbasket" asp-route-id="@item.Id" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#quick_view">
+                                                <span data-toggle="tooltip"
+                                                      title="Quick View"><i class="ion-ios-eye-outline"></i></span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- product item start -->
+                            <!-- product item start -->
                         }
                     </div>
                 </div>
@@ -281,6 +283,7 @@
                                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
                                 <div class="quantity-cart-box d-flex align-items-center mb-20">
                                     <div class="quantity">
+
                                         <div class="pro-qty"><input type="text" value="1"></div>
                                     </div>
                                     <a asp-controller="Basket" asp-action="Index" class="btn btn-default">Add To Cart</a>
@@ -308,7 +311,7 @@
 <!-- Quick view modal end -->
 
 @section ScriptsJs{
-    <script>
+    @*<script>
         $(document).on("click", ".add-to-cart", function () {
             console.log("ok")
 
@@ -332,5 +335,5 @@
             })
 
         });
-    </script>
- }
+    </script>*@
+}

@@ -34,7 +34,7 @@ namespace Front_to_back.Controllers
             IEnumerable<Service> services = await _context.Services.ToListAsync();
             IEnumerable<Product> products = await _context.Products
                 .Where(m => m.IsDeleted == false)
-                .Include(m => m.Category)
+                .Include(m => m.ProductCategories).ThenInclude(m=>m.Category)
                 .Include(m => m.ProductImages).Take(4).ToListAsync();
 
             HomeVM model = new HomeVM

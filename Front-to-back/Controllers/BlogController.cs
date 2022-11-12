@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Front_to_back.Data;
+using Front_to_back.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,40 +10,25 @@ namespace Front_to_back.Controllers
 {
     public class BlogController : Controller
     {
+        private AppDbContext _context;
+
+        public BlogController(AppDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult BlogDetails()
+        public IActionResult BlogDetails(int? id)
         {
-            return View();
+            Blog blog = _context.Blogs.FirstOrDefault(b=>b.Id==id);
+            return View(blog );
         }
 
-        public IActionResult BlogRight()
-        {
-            return View();
-        }
-
-        public IActionResult NoSidebar()
-        {
-            return View();
-        }
-
-        public IActionResult BlogAudio()
-        {
-            return View();
-        }
-
-        public IActionResult BlogVideo()
-        {
-            return View();
-        }
-
-        public IActionResult BlogDetailsLeft()
-        {
-            return View();
-        }
+       
 
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Front_to_back.Data;
 using Front_to_back.Models;
 using Front_to_back.ViewModels;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -13,93 +15,152 @@ namespace Front_to_back.Controllers
 {
     public class BasketController : Controller
     {
-        private readonly AppDbContext _context;
-        public BasketController(AppDbContext context)
+        private AppDbContext _context;
+        private UserManager<AppUser> _userManager;
+        private readonly IHttpContextAccessor _httpContext;
+        public BasketController(AppDbContext context, IHttpContextAccessor httpContextAccessor, UserManager<AppUser> userManager)
         {
             _context = context;
+            _httpContext = httpContextAccessor;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
         {
-            List<BasketVM> basketItems = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
-            List<BasketDetailVM> basketDetail = new List<BasketDetailVM>();
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            foreach (var item in basketItems)
+            OrderVM model = new OrderVM
             {
-                Product product = await _context.Products
-                    .Where(m => m.Id == item.Id && m.IsDeleted == false)
-                    .Include(m => m.ProductImages).FirstOrDefaultAsync();
+                Username = user.UserName,
+                Email = user.Email,
+                BasketItems = _context.BasketItems.Include(b => b.Product).ThenInclude(f => f.Campaign).Include(b => b.Product).Where(b => b.AppUserId == user.Id).ToList(),
 
-                BasketDetailVM newBasket = new BasketDetailVM
+            };
+
+
+            return View(model);
+
+        }
+
+
+        public async Task<IActionResult> AddBasket(int id)
+        {
+            Product product = _context.Products.Include(f => f.Campaign).FirstOrDefault(f => f.Id == id);
+
+
+            if (User.Identity.IsAuthenticated)
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+                BasketItem basketItem = _context.BasketItems.FirstOrDefault(b => b.ProductId == product.Id && b.AppUserId == user.Id);
+                if (basketItem == null)
                 {
-                    Title = product.Title,
-                    Image = product.ProductImages.Where(m => m.IsMain).FirstOrDefault().Image,
-                    Price = product.Price,
-                    Count = item.Count,
-                    Total = product.Price * item.Count
-                };
+                    basketItem = new BasketItem
+                    {
+                        AppUserId = user.Id,
+                        ProductId = product.Id,
+                        Count = 1
+                    };
+                    _context.BasketItems.Add(basketItem);
+                }
+                else
+                {
+                    basketItem.Count++;
+                }
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+                 
+                //return View("_basketPartial");
+            }
 
-                basketDetail.Add(newBasket);
+
+
+            return RedirectToAction("login", "account");
+        }
+
+
+        public async Task<IActionResult> Plus(int Id)
+        {
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            BasketItem basket = _context.BasketItems.Include(b => b.Product).ThenInclude(b => b.Campaign).FirstOrDefault(b => b.ProductId == Id && b.AppUserId == user.Id);
+            basket.Count++;
+            _context.SaveChanges();
+            decimal TotalPrice = 0;
+            decimal Price = basket.Count * (basket.Product.CampaignId == null ? basket.Product.Price : basket.Product.Price * (100 - basket.Product.Campaign.DiscountPercent) / 100);
+            List<BasketItem> basketItems = _context.BasketItems.Include(b => b.AppUser).Include(b => b.Product).Where(b => b.AppUserId == user.Id).ToList();
+            foreach (BasketItem item in basketItems)
+            {
+                Product product = _context.Products.Include(b => b.Campaign).FirstOrDefault(b => b.Id == item.ProductId);
+
+                BasketItemVM basketItemVM = new BasketItemVM
+                {
+                    Product = product,
+                    Count = item.Count
+                };
+                basketItemVM.Price = product.CampaignId == null ? product.Price : product.Price * (100 - product.Campaign.DiscountPercent) / 100;
+
+                TotalPrice += basketItemVM.Price * basketItemVM.Count;
 
             }
 
-            return View(basketDetail);
+            return Json(new { totalPrice = TotalPrice, Price });
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
-        public IActionResult Checkout()
+        public async Task<IActionResult> Minus(int Id)
         {
-            return View();
-        }
-
-        public IActionResult Compare()
-        {
-            return View();
-        }
-
-        public IActionResult Wishlist()
-        {
-            return View();
-        }
-        public async Task<IActionResult> AddBasket(int? id)
-        {
-            if (id is null) return BadRequest();
-
-            //var dbProduct = await GetProductById(id);
-
-            var dbProduct = await _context.Products.FindAsync(id);
-
-            if (dbProduct == null) return NotFound();
-
-            //List<BasketVM> basket = GetBasket();
-
-            List<BasketVM> basket;
-
-            if (Request.Cookies["basket"] != null)
+            AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+            BasketItem basket = _context.BasketItems.Include(b => b.Product).ThenInclude(b => b.Campaign).FirstOrDefault(b => b.ProductId == Id && b.AppUserId == user.Id);
+            if (basket.Count == 1)
             {
-                basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
+                basket.Count = 1;
             }
             else
             {
-                basket = new List<BasketVM>();
+                basket.Count--;
+            }
+            _context.SaveChanges();
+            decimal TotalPrice = 0;
+            decimal Price = basket.Count * (basket.Product.CampaignId == null ? basket.Product.Price : basket.Product.Price * (100 - basket.Product.Campaign.DiscountPercent) / 100);
+            List<BasketItem> basketItems = _context.BasketItems.Include(b => b.AppUser).Include(b => b.Product).Where(b => b.AppUserId == user.Id).ToList();
+            foreach (BasketItem item in basketItems)
+            {
+                Product product = _context.Products.Include(b => b.Campaign).FirstOrDefault(b => b.Id == item.ProductId);
+
+                BasketItemVM basketItemVM = new BasketItemVM
+                {
+                    Product = product,
+                    Count = item.Count
+                };
+                basketItemVM.Price = product.CampaignId == null ? product.Price : product.Price * (100 - product.Campaign.DiscountPercent) / 100;
+
+                TotalPrice += basketItemVM.Price * basketItemVM.Count;
+
             }
 
-            basket.Add(new BasketVM
+            return Json(new { totalPrice = TotalPrice, Price });
+        }
+
+        public async Task<IActionResult> RemoveCart(int Id)
+        {
+            if (User.Identity.IsAuthenticated)
             {
-                Id = dbProduct.Id,
-                Count = 1
-            });
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-            Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
+                List<BasketItem> basketItems = _context.BasketItems.Where(b => b.ProductId == Id && b.AppUserId == user.Id).ToList();
+                if (basketItems == null) return Json(new { status = 404 });
+                foreach (var item in basketItems)
+                {
 
-            return RedirectToAction("Index");
+                    _context.BasketItems.Remove(item);
+                }
+            }
+
+            _context.SaveChanges();
+
+
+            return Json(new { status = 200 });
         }
 
     }
-
 
 }

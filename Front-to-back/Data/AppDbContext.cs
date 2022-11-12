@@ -10,8 +10,14 @@ namespace Front_to_back.Data
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
+        public DbSet<ProductCategories> ProductCategories { get; set; }
 
         public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Bio> Bios { get; set; }
+        public DbSet<Currency> Currencies { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<Campaign> Campaign { get; set; }
+        public DbSet<BasketItem> BasketItems { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<OurProductHead> OurProductHeads { get; set; }

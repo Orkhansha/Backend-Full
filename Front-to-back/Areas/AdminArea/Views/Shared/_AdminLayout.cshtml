@@ -170,9 +170,9 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="Dashboard" asp-action="Index">
+                        <a class="nav-link" asp-area="AdminArea" asp-controller="Campaign" asp-action="Index">
                             <i class="mdi mdi-home menu-icon"></i>
-                            <span class="menu-title">Dashboard</span>
+                            <span class="menu-title">Campaign</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -201,9 +201,9 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="Employee" asp-action="Index">
+                        <a class="nav-link" asp-area="AdminArea" asp-controller="campaign" asp-action="Index">
                             <i class="mdi mdi-grid-large menu-icon"></i>
-                            <span class="menu-title">Employees</span>
+                            <span class="menu-title">Campaign</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -256,8 +256,9 @@
     <script src="~/admin/js/off-canvas.js"></script>
     <script src="~/admin/js/hoverable-collapse.js"></script>
     <script src="~/admin/js/template.js"></script>
-    @RenderSection("Scripts", required: false)
-   
+    @*@RenderSection("Scripts", required: false)*@
+    @RenderSection("ScriptsJs", required: false)
+
     <!-- endinject -->
     <!-- Custom js for this page-->
     <script src="~/admin/js/dashboard.js"></script>

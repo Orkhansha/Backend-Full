@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+ 
+using System.IO; 
 using System.Threading.Tasks;
 
 namespace Front_to_back.Helpers
@@ -13,7 +11,10 @@ namespace Front_to_back.Helpers
         {
             return file.ContentType.Contains(type);
         }
-
+        public static bool IsImage(this IFormFile file)
+        {
+            return file.ContentType.Contains("image/");
+        }
         public static bool CheckFileSize(this IFormFile file, long size)
         {
             return (file.Length / 1024) < size;

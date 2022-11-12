@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Front_to_back.Models
 {
-    public class Category: BaseEntity
+    public class Category:BaseEntity
     {
-        [Required(ErrorMessage = "Name can't be empty")]
+      
+        [Required]
         public string Name { get; set; }
-        public ICollection<Product> Products { get; set; }
-        public int Count { get; set; }
+        public List<ProductCategories> ProductCategories { get; set; }
+
 
     }
 }

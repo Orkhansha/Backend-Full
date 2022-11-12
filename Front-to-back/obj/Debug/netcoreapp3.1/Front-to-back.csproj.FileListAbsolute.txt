@@ -693,7 +693,6 @@ C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Proj
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Text.Encoding.CodePages.dll
-C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.csproj.AssemblyReference.cache
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.AssemblyInfoInputs.cache
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.AssemblyInfo.cs
@@ -707,6 +706,9 @@ C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Proj
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.TagHelpers.input.cache
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.TagHelpers.output.cache
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.RazorCoreGenerate.cache
+C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Campaign\Create.cshtml.g.cs
+C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Campaign\Index.cshtml.g.cs
+C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Campaign\Update.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Category\Create.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Category\Detail.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Category\Edit.cshtml.g.cs
@@ -736,15 +738,17 @@ C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Proj
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Blog\NoSidebar.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Home\IndexTwo.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Product\Affiliate.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Product\Detail.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Product\Group.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Product\Variable.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Profile\Index.cshtml.g.cs
+C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductPartial.cshtml.g.cs
+C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Search.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Shop\GridFull3.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Shop\GridFull4.cshtml.g.cs
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Shop\GridRight.cshtml.g.cs
@@ -761,4 +765,3 @@ C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Proj
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.dll
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.pdb
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.genruntimeconfig.cache
-C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Search.cshtml.g.cs

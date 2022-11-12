@@ -35,13 +35,20 @@ using Front_to_back.ViewModels;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\Views\_ViewImports.cshtml"
+using Front_to_back.Helpers;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\Views\_ViewImports.cshtml"
 using Front_to_back.ViewModels.ProductViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4021560cf43ada3af1fb9351fce32880d5443fb1", @"/Views/Basket/Checkout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e9815f6ccc8569bfe0d87258c4fc49a01cd5e119", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cd3dc44f83d1b002edea9958df727b640f3a33f8", @"/Views/_ViewImports.cshtml")]
     public class Views_Basket_Checkout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("action", new global::Microsoft.AspNetCore.Html.HtmlString("#"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -148,7 +155,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                         <div class=""row"">
                                             <div class=""col-lg-7 m-auto"">
                                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb113069", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb113300", async() => {
                 WriteLiteral(@"
                                                     <div class=""row"">
                                                         <div class=""col-md-12"">
@@ -222,7 +229,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                     <div class=""cart-update-option"">
                                         <div class=""apply-coupon-wrapper"">
                                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb118306", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb118537", async() => {
                 WriteLiteral(@"
                                                 <input type=""text"" placeholder=""Enter Your Coupon Code"" required />
                                                 <button class=""btn btn-sqr"">Apply Coupon</button>
@@ -261,7 +268,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                         <h4 class=""checkout-title"">Billing Details</h4>
                         <div class=""billing-form-wrap"">
                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb120861", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb121092", async() => {
                 WriteLiteral(@"
                                 <div class=""row"">
                                     <div class=""col-md-6"">
@@ -294,7 +301,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                     <label for=""country"" class=""required"">Country</label>
                                     <select name=""country nice-select"" id=""country"">
                                         ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb123067", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb123298", async() => {
                     WriteLiteral("Afghanistan");
                 }
                 );
@@ -310,7 +317,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb124336", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb124567", async() => {
                     WriteLiteral("Albania");
                 }
                 );
@@ -326,7 +333,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb125601", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb125832", async() => {
                     WriteLiteral("Algeria");
                 }
                 );
@@ -342,7 +349,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb126866", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb127097", async() => {
                     WriteLiteral("Azerbaijan");
                 }
                 );
@@ -358,7 +365,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb128134", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb128365", async() => {
                     WriteLiteral("Bangladesh");
                 }
                 );
@@ -374,7 +381,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb129402", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb129633", async() => {
                     WriteLiteral("India");
                 }
                 );
@@ -390,7 +397,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb130665", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb130896", async() => {
                     WriteLiteral("Pakistan");
                 }
                 );
@@ -406,7 +413,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb131931", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb132162", async() => {
                     WriteLiteral("England");
                 }
                 );
@@ -422,7 +429,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb133198", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb133429", async() => {
                     WriteLiteral("London");
                 }
                 );
@@ -438,7 +445,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb134464", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb134695", async() => {
                     WriteLiteral("London");
                 }
                 );
@@ -454,7 +461,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb135730", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb135961", async() => {
                     WriteLiteral("China");
                 }
                 );
@@ -570,7 +577,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                             <label for=""country_2"" class=""required"">Country</label>
                                             <select name=""country"" id=""");
                 WriteLiteral("country_2\">\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb143546", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb143777", async() => {
                     WriteLiteral("Bangladesh");
                 }
                 );
@@ -586,7 +593,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb144822", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb145053", async() => {
                     WriteLiteral("India");
                 }
                 );
@@ -602,7 +609,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb146093", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb146324", async() => {
                     WriteLiteral("Pakistan");
                 }
                 );
@@ -618,7 +625,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb147367", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb147598", async() => {
                     WriteLiteral("England");
                 }
                 );
@@ -634,7 +641,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb148642", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb148873", async() => {
                     WriteLiteral("London");
                 }
                 );
@@ -650,7 +657,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb149916", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb150147", async() => {
                     WriteLiteral("London");
                 }
                 );
@@ -666,7 +673,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n                                                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb151190", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb151421", async() => {
                     WriteLiteral("Chaina");
                 }
                 );
@@ -753,7 +760,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                         <tr>
                                     ");
             WriteLiteral("        <td>\r\n                                                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb156954", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb157185", async() => {
                 WriteLiteral("Suscipit Vestibulum <strong> × 1</strong>");
             }
             );
@@ -777,7 +784,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                         <tr>
                                             <td>
                                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb158658", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb158889", async() => {
                 WriteLiteral("Ami Vestibulum suscipit <strong> × 4</strong>");
             }
             );
@@ -801,7 +808,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                         <tr>
                                             <td>
                                                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb160366", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb160597", async() => {
                 WriteLiteral("Vestibulum suscipit <strong> × 2</strong>");
             }
             );
@@ -919,7 +926,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                         <div class=""custom-control custom-radio"">
                                             <input type=""radio"" id=""paypalpayment"" name=""paymentmethod"" value=""paypal"" class=""custom-control-input"" />
                                             <label class=""custom-control-label"" for=""paypalpayment"">Paypal ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4021560cf43ada3af1fb9351fce32880d5443fb168829", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "4021560cf43ada3af1fb9351fce32880d5443fb169060", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -951,7 +958,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                             I have read and agree to
                                             t");
             WriteLiteral("he website ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb171110", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "4021560cf43ada3af1fb9351fce32880d5443fb171341", async() => {
                 WriteLiteral("terms and conditions.");
             }
             );

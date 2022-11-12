@@ -30,7 +30,7 @@ namespace Front_to_back.Areas.AdminArea.Controllers
             List<Product> products = await _context.Products
                 .Where(m => !m.IsDeleted)
                 .Include(m => m.ProductImages)
-                .Include(m => m.Category)
+                //.Include(m => m.Category)
                 .Skip((page * take) - take)
                 .Take(take)
                 .ToListAsync();
@@ -66,7 +66,7 @@ namespace Front_to_back.Areas.AdminArea.Controllers
                     Title = product.Title,
                     Images = product.Image,
                     //MainImage = product.ProductImages.Where(m => m.IsMain).FirstOrDefault()?.Image,
-                    CategoryName = product.Category.Name,
+                   // CategoryName = product.Category.Name,
                     Price = product.Price,
                     SellerCount = product.SellerCount,
                     Discount = product.Discount
@@ -82,77 +82,132 @@ namespace Front_to_back.Areas.AdminArea.Controllers
         public async Task<IActionResult> Create()
         {
             ViewBag.categories = await GetCategoriesAsync();
+            ViewBag.Categories = _context.Categories.Where(c=>!c.IsDeleted).ToList();
+            ViewBag.Campaigns = _context.Campaign.ToList();
+
             return View();
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(ProductCreateVM product)
+        #region
+        //public async Task<IActionResult> Create(ProductCreateVM product)
+        //{
+        //    ViewBag.categories = await GetCategoriesAsync();
+
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(product);
+        //    }
+
+        //    foreach (var photo in product.Photos)
+        //    {
+        //        if (!photo.CheckFileType("image/"))
+        //        {
+        //            ModelState.AddModelError("Photo", "Please choose correct image type");
+        //            return View(product);
+        //        }
+
+
+        //        if (!photo.CheckFileSize(500))
+        //        {
+        //            ModelState.AddModelError("Photo", "Please choose correct image size");
+        //            return View(product);
+        //        }
+
+        //    }
+
+        //    List<ProductImages> images = new List<ProductImages>();
+
+        //    foreach (var photo in product.Photos)
+        //    {
+        //        string fileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
+
+        //        string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/product", fileName);
+
+        //        await Helper.SaveFile(path, photo);
+
+
+        //        ProductImages image = new ProductImages
+        //        {
+        //            Image = fileName,
+        //        };
+
+        //        images.Add(image);
+        //    }
+
+        //    images.FirstOrDefault().IsMain = true;
+
+        //    decimal convertedPrice = StringToDecimal(product.Price);
+
+        //    Product newProduct = new Product
+        //    {
+        //        Title = product.Title,
+        //        Price = convertedPrice,
+        //        //CategoryId = product.CategoryId,
+        //        ProductImages = images
+        //    };
+
+        //    await _context.ProductImages.AddRangeAsync(images);
+        //    await _context.Products.AddAsync(newProduct);
+
+        //    await _context.SaveChangesAsync();
+
+        //    return RedirectToAction(nameof(Index));
+        //}
+
+        #endregion
+        public async Task<IActionResult> Create(Product product)
         {
-            ViewBag.categories = await GetCategoriesAsync();
+            ViewBag.Categories = _context.Categories.Where(c => !c.IsDeleted).ToList();
+            ViewBag.Campaigns=_context.Campaign.ToList();
 
-            if (!ModelState.IsValid)
+            if (!ModelState.IsValid) return View();
+            if (product.Photo != null)
             {
-                return View(product);
-            }
-
-            foreach (var photo in product.Photos)
-            {
-                if (!photo.CheckFileType("image/"))
+                if (!product.Photo.IsImage())
                 {
-                    ModelState.AddModelError("Photo", "Please choose correct image type");
-                    return View(product);
+                    ModelState.AddModelError("Photo", "Sekil formati duzgun deyil");
+                    return View();
                 }
-
-
-                if (!photo.CheckFileSize(500))
+                if (!product.Photo.CheckFileSize(90000))
                 {
-                    ModelState.AddModelError("Photo", "Please choose correct image size");
-                    return View(product);
+                    ModelState.AddModelError("Photo", "Max 5mb ola biler");
+                    return View();
                 }
-
+                product.Image = await product.Photo.SaveImage(_env, "assets/img/product");
+            }
+            else
+            {
+                ModelState.AddModelError("Photo", "Sekil elave edin");
+                return View();
             }
 
-            List<ProductImages> images = new List<ProductImages>();
-
-            foreach (var photo in product.Photos)
+            product.ProductCategories = new List<ProductCategories>();
+            if (product.CategoryIds != null)
             {
-                string fileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
-
-                string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/product", fileName);
-
-                await Helper.SaveFile(path, photo);
-
-
-                ProductImages image = new ProductImages
+                foreach (var categoryId in product.CategoryIds)
                 {
-                    Image = fileName,
-                };
-
-                images.Add(image);
+                    ProductCategories pCategory = new ProductCategories
+                    {
+                        Product = product,
+                        CategoryId = categoryId
+                    };
+                    _context.ProductCategories.Add(pCategory);
+                }
             }
-
-            images.FirstOrDefault().IsMain = true;
-
-            decimal convertedPrice = StringToDecimal(product.Price);
-
-            Product newProduct = new Product
+            if (product.CampaignId == 0)
             {
-                Title = product.Title,
-                Price = convertedPrice,
-                CategoryId = product.CategoryId,
-                ProductImages = images
-            };
+                ModelState.AddModelError("CampaignId", "Select Discount Percent");
+                return View();
 
-            await _context.ProductImages.AddRangeAsync(images);
-            await _context.Products.AddAsync(newProduct);
-
-            await _context.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
+            }
+            _context.Products.Add(product);
+            _context.SaveChanges();
+           
+            return RedirectToAction("Index");
         }
-
 
         [HttpGet]
         public async Task<IActionResult> Detail(int? id)
@@ -208,7 +263,7 @@ namespace Front_to_back.Areas.AdminArea.Controllers
                 Id = dbProduct.Id,
                 Title = dbProduct.Title,
                 Price = dbProduct.Price.ToString("0.#####").Replace(",", "."),
-                CategoryId = dbProduct.CategoryId,
+                //CategoryId = dbProduct.CategoryId,
                 Images = dbProduct.ProductImages
             });
         }
@@ -282,7 +337,7 @@ namespace Front_to_back.Areas.AdminArea.Controllers
             dbProduct.Title = updatedProduct.Title;
             dbProduct.ProductImages = updatedProduct.Images;
             dbProduct.Price = convertedPrice;
-            dbProduct.CategoryId = updatedProduct.CategoryId;
+            //dbProduct.CategoryId = updatedProduct.CategoryId;
 
             await _context.SaveChangesAsync();
 
@@ -304,7 +359,7 @@ namespace Front_to_back.Areas.AdminArea.Controllers
         {
             return await _context.Products
                                  .Where(m => !m.IsDeleted && m.Id == id)
-                                 .Include(m => m.Category)
+                                 //.Include(m => m.Category)
                                  .Include(m => m.ProductImages)
                                  .FirstOrDefaultAsync();
         }

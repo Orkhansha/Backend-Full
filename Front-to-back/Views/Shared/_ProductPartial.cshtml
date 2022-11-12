@@ -3,11 +3,11 @@
     @foreach (var item in Model)
     {
 
-        <div class="mb-50" data-id="@item.CategoryId">
-            <div class="product-item text-center" data-id="@item.CategoryId">
+        <div class="mb-50" @*data-id="@item.CategoryId"*@>
+            <div class="product-item text-center" @*data-id="@item.CategoryId"*@>
                 <input type="hidden" class="product-id" value="@item.Id" />
                 <div class="product-thumb">
-                    <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
+                    <a asp-controller="Product" asp-action="detail" asp-route-id="@item.Id">
                         <img src="~/assets/img/product/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
                     </a>
                 </div>

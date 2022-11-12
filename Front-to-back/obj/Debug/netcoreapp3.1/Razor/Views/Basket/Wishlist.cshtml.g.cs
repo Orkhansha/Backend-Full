@@ -35,13 +35,20 @@ using Front_to_back.ViewModels;
 #nullable disable
 #nullable restore
 #line 4 "C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\Views\_ViewImports.cshtml"
+using Front_to_back.Helpers;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 5 "C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\Views\_ViewImports.cshtml"
 using Front_to_back.ViewModels.ProductViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ee6ddf272912c96d520c2febb61b8bc23a3abd54", @"/Views/Basket/Wishlist.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e9815f6ccc8569bfe0d87258c4fc49a01cd5e119", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cd3dc44f83d1b002edea9958df727b640f3a33f8", @"/Views/_ViewImports.cshtml")]
     public class Views_Basket_Wishlist : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -102,7 +109,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                             <h1 class=""breadcrumb-title"">Wishlist</h1>
                             <ul class=""breadcrumb"">
                                 <li class=""breadcrumb-item"">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee6ddf272912c96d520c2febb61b8bc23a3abd548575", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee6ddf272912c96d520c2febb61b8bc23a3abd548806", async() => {
                 WriteLiteral("Home");
             }
             );
@@ -154,7 +161,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                     <td class=""pro-thumbnail"">
                                         <a href=""#"">
                                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ee6ddf272912c96d520c2febb61b8bc23a3abd5411591", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ee6ddf272912c96d520c2febb61b8bc23a3abd5411822", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -176,7 +183,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                     <td class=""pro-price""><span>$295.00</span></td>
                                     <td class=""pro-quantity""><span class=""text-success"">In Stock</span></td>
                                     <td class=""pro-subtotal"">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee6ddf272912c96d520c2febb61b8bc23a3abd5413242", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee6ddf272912c96d520c2febb61b8bc23a3abd5413473", async() => {
                 WriteLiteral("Add to Cart");
             }
             );
@@ -201,7 +208,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                     <td class=""pro-thumbnail"">
                                         <a href=""#"">
                                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ee6ddf272912c96d520c2febb61b8bc23a3abd5415056", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ee6ddf272912c96d520c2febb61b8bc23a3abd5415287", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -223,7 +230,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                     <td class=""pro-price""><span>$275.00</span></td>
                                     <td class=""pro-quantity""><span class=""text-success"">In Stock</span></td>
                                     <td class=""pro-subtotal"">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee6ddf272912c96d520c2febb61b8bc23a3abd5416706", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee6ddf272912c96d520c2febb61b8bc23a3abd5416937", async() => {
                 WriteLiteral("Add to Cart");
             }
             );
@@ -248,7 +255,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                     <td class=""pro-thumbnail"">
                                         <a href=""#"">
                                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ee6ddf272912c96d520c2febb61b8bc23a3abd5418520", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ee6ddf272912c96d520c2febb61b8bc23a3abd5418751", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -270,7 +277,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                     <td class=""pro-price""><span>$295.00</span></td>
                                     <td class=""pro-quantity""><span class=""text-danger"">Stock Out</span></td>
                                     <td class=""pro-subtotal"">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee6ddf272912c96d520c2febb61b8bc23a3abd5420173", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee6ddf272912c96d520c2febb61b8bc23a3abd5420404", async() => {
                 WriteLiteral("Add to Cart");
             }
             );
@@ -295,7 +302,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                     <td class=""pro-thumbnail"">
                                         <a href=""#"">
                                             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ee6ddf272912c96d520c2febb61b8bc23a3abd5421987", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ee6ddf272912c96d520c2febb61b8bc23a3abd5422218", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -317,7 +324,7 @@ using Front_to_back.ViewModels.ProductViewModels;
                                     <td class=""pro-price""><span>$110.00</span></td>
                                     <td class=""pro-quantity""><span class=""text-success"">In Stock</span></td>
                                     <td class=""pro-subtotal"">");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee6ddf272912c96d520c2febb61b8bc23a3abd5423637", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ee6ddf272912c96d520c2febb61b8bc23a3abd5423868", async() => {
                 WriteLiteral("Add to Cart");
             }
             );

@@ -117,6 +117,67 @@ namespace Front_to_back.Migrations
                     b.ToTable("Banners");
                 });
 
+            modelBuilder.Entity("Front_to_back.Models.BasketItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("AppUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("BasketItems");
+                });
+
+            modelBuilder.Entity("Front_to_back.Models.Bio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Fb")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Insta")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Linkedin")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Twitter")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bios");
+                });
+
             modelBuilder.Entity("Front_to_back.Models.Blog", b =>
                 {
                     b.Property<int>("Id")
@@ -183,15 +244,27 @@ namespace Front_to_back.Migrations
                     b.ToTable("Brands");
                 });
 
-            modelBuilder.Entity("Front_to_back.Models.Category", b =>
+            modelBuilder.Entity("Front_to_back.Models.Campaign", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Count")
+                    b.Property<int>("DiscountPercent")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Campaign");
+                });
+
+            modelBuilder.Entity("Front_to_back.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -261,6 +334,45 @@ namespace Front_to_back.Migrations
                     b.ToTable("Comments");
                 });
 
+            modelBuilder.Entity("Front_to_back.Models.Currency", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Currencies")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Icon")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Currencies");
+                });
+
+            modelBuilder.Entity("Front_to_back.Models.Language", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Lang")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Languages");
+                });
+
             modelBuilder.Entity("Front_to_back.Models.OurProductHead", b =>
                 {
                     b.Property<int>("Id")
@@ -289,8 +401,14 @@ namespace Front_to_back.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("CategoryId")
+                    b.Property<int?>("CampaignId")
                         .HasColumnType("int");
+
+                    b.Property<int?>("ColorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Discount")
                         .HasColumnType("int");
@@ -307,14 +425,46 @@ namespace Front_to_back.Migrations
                     b.Property<int>("SellerCount")
                         .HasColumnType("int");
 
+                    b.Property<int?>("SizeId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("CampaignId");
+
+                    b.HasIndex("ColorId");
+
+                    b.HasIndex("SizeId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Front_to_back.Models.ProductCategories", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductCategories");
                 });
 
             modelBuilder.Entity("Front_to_back.Models.ProductImages", b =>
@@ -567,6 +717,19 @@ namespace Front_to_back.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Front_to_back.Models.BasketItem", b =>
+                {
+                    b.HasOne("Front_to_back.Models.AppUser", "AppUser")
+                        .WithMany("BasketItems")
+                        .HasForeignKey("AppUserId");
+
+                    b.HasOne("Front_to_back.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Front_to_back.Models.Comment", b =>
                 {
                     b.HasOne("Front_to_back.Models.AppUser", "AppUser")
@@ -584,9 +747,30 @@ namespace Front_to_back.Migrations
 
             modelBuilder.Entity("Front_to_back.Models.Product", b =>
                 {
-                    b.HasOne("Front_to_back.Models.Category", "Category")
+                    b.HasOne("Front_to_back.Models.Campaign", "Campaign")
                         .WithMany("Products")
+                        .HasForeignKey("CampaignId");
+
+                    b.HasOne("Front_to_back.Models.Color", "Color")
+                        .WithMany()
+                        .HasForeignKey("ColorId");
+
+                    b.HasOne("Front_to_back.Models.Size", "Size")
+                        .WithMany()
+                        .HasForeignKey("SizeId");
+                });
+
+            modelBuilder.Entity("Front_to_back.Models.ProductCategories", b =>
+                {
+                    b.HasOne("Front_to_back.Models.Category", "Category")
+                        .WithMany("ProductCategories")
                         .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Front_to_back.Models.Product", "Product")
+                        .WithMany("ProductCategories")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

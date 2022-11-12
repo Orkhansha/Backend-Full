@@ -18,6 +18,10 @@
     <Compile Remove="Migrations\20221108130934_Addusernamecolumness.Designer.cs" />
     <Compile Remove="Migrations\20221108131235_Addusernamecolumne.cs" />
     <Compile Remove="Migrations\20221108131235_Addusernamecolumne.Designer.cs" />
+    <Compile Remove="Migrations\20221112124325_addproductcategories.cs" />
+    <Compile Remove="Migrations\20221112124325_addproductcategories.Designer.cs" />
+    <Compile Remove="Migrations\20221112124631_addpctable.cs" />
+    <Compile Remove="Migrations\20221112124631_addpctable.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

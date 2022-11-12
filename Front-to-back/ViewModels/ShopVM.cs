@@ -1,4 +1,5 @@
-﻿using Front_to_back.Models;
+﻿using Front_to_back.Helpers;
+using Front_to_back.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,6 @@ namespace Front_to_back.ViewModels
         public IEnumerable<Size> Sizes { get; set; }
         public BlogHead BlogHead { get; set; }
         public ShopBanner ShopBanner { get; set; }
+        
     }
 }

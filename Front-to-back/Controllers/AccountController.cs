@@ -72,7 +72,7 @@ namespace Front_to_back.Controllers
 
             await _userManager.AddToRoleAsync(user, Roles.User.ToString());
 
-            //await _signInManager.SignInAsync(user, false);
+            await _signInManager.SignInAsync(user, false);
 
             return RedirectToAction(nameof(Login));
         }

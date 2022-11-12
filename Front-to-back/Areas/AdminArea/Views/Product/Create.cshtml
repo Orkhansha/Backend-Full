@@ -1,6 +1,8 @@
-﻿@model ProductCreateVM
+﻿@model Product
 @{
-    ViewData["Title"] = "Edit";
+    List<Campaign> campaigns = (List<Campaign>)ViewBag.Campaigns;
+
+
 }
 
 <div class="main-panel">
@@ -14,6 +16,11 @@
                             Product
                         </p>
                         <form asp-controller="Product" asp-action="Create" enctype="multipart/form-data" class="forms-sample" method="post">
+                            <div class="form-group col-md-3">
+                                <label asp-for="@Model.Photo">Image</label>
+                                <input asp-for="@Model.Photo" accept="image/*" />
+                                <span asp-validation-for="@Model.Photo"></span>
+                            </div>
                             <div class="form-group">
                                 <label asp-for="Title">Title</label>
                                 <input class="form-control" asp-for="Title">
@@ -29,14 +36,17 @@
                                 <input type="number" min="0" step=".01" class="form-control" asp-for="Price">
                                 <span asp-validation-for="Price" class="text-danger my-1"></span>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="CategoryId">Categories</label>
-                                <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.categories"></select>
+                            <div class="form-group col-md-3">
+                                <label asp-for="@Model.CategoryIds">Categories</label>
+                                <select class="form-control" asp-for="@Model.CategoryIds" asp-items="@(new SelectList(ViewBag.Categories,"Id","Name"))">
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <label asp-for="Photos">Photos</label>
-                                <input class="form-control" asp-for="Photos">
-                                <span asp-validation-for="Photos" class="text-danger my-1"></span>
+                            <div class="form-group mb-3">
+                                <label asp-for="@Model.CampaignId" class="form-label">Campaign</label>
+                                <select asp-for="@Model.CampaignId" class="form-select" asp-items="@(new SelectList(campaigns,"Id","DiscountPercent"))">
+                                    <option value="0">Select campaign</option>
+                                </select>
+                                <span class="mt-2 text text-danger" asp-validation-for="@Model.CampaignId"></span>
                             </div>
                             <button type="submit" class="btn btn-primary mr-2">Submit</button>
                             <a asp-controller="Product" asp-action="Index" class="btn btn-light">Cancel</a>
@@ -49,7 +59,7 @@
 </div>
 
 
-@section Scripts{
+@section ScriptsJs{
     <partial name="_ValidationPartial" />
 }
 

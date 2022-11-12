@@ -1,0 +1,91 @@
+﻿@model List<Campaign>
+
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+
+<div class="container">
+    <div class="row">
+        <a class="btn btn-primary" asp-controller="Campaign" asp-action="Create">Create</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">Settings</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    count++;
+                    <tr>
+                        <td>@count</td>
+                        <td>@item.DiscountPercent</td>
+                        <td>
+                            <a class="btn btn-danger" asp-area="AdminArea" asp-controller="Campaign" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <a class="btn btn-success" asp-controller="campaign" asp-action="update" asp-route-id="@item.Id">Update</a>
+
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="row justify-content-center mt-4">
+        <nav aria-label="...">
+            <ul class="pagination" style="justify-content:center">
+
+                <li class="page-item @(ViewBag.Currentpage == 1 ? "disabled" : "")">
+                    <a class="page-link" asp-controller="campaign" asp-action="index" asp-route-page="@(ViewBag.CurrentPage-1)">Previous</a>
+                </li>
+
+                @for (int i = 1; i <= ViewBag.TotalPage; i++)
+                {
+                    <li class="page-item  @(ViewBag.CurrentPage == i ? "active" : "")" style="pointer-events: @(ViewBag.CurrentPage == i ? "none" : "")"><a class="page-link" asp-controller="campaign" asp-action="index" asp-route-page="@i">@i</a></li>
+}
+
+                <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPage ? "disabled" : "")">
+                    <a class="page-link" asp-controller="campaign" asp-action="index" asp-route-page="@(ViewBag.CurrentPage +1)">Next</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+@section ScriptsJs{
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>$(".delete-item").click(function (e) {
+        e.preventDefault()
+        console.log($(this).attr("href"))
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var link = $(this).attr("href");
+                fetch(link).then(response => response.json()).then(data => {
+                    if (data.status == 200) {
+                        location.reload(true)
+                    } else {
+                        Swal.fire(
+                            'Not found!',
+                            'Your file can not be deleted.',
+                            'Failed'
+                        )
+                    }
+                }
+                );
+            }
+        })
+    })</script>
+}

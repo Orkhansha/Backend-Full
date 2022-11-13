@@ -30,7 +30,7 @@ namespace Front_to_back.Areas.AdminArea.Controllers
             List<Product> products = await _context.Products
                 .Where(m => !m.IsDeleted)
                 .Include(m => m.ProductImages)
-                //.Include(m => m.Category)
+                .Include(m => m.ProductCategories)
                 .Skip((page * take) - take)
                 .Take(take)
                 .ToListAsync();

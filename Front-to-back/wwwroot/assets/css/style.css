@@ -96,6 +96,9 @@ button {
     -webkit-box-shadow: none;
     box-shadow: none; }
 
+
+
+
 input:focus,
 textarea:focus {
   outline: none; }
@@ -2693,6 +2696,41 @@ fieldset {
       color: #fff;
       border-color: #e3a51e;
       background-color: #e3a51e; }
+/*--
+    -----------------------------------------------------------------------//*/
+    .paginate-area {
+  padding: 20px 0 18px;
+  width: 100%;
+   }
+
+.page-numbers {
+    font-size: 18px;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 1px solid grey;
+    background-color: #d4d5d2;
+}
+.paginate-area .pagination-box li {
+    display: inline-block;
+    margin-right: 10px;
+}
+            .paginate-area .pagination-box li a {
+                font-size: 18px;
+                float: left;
+                padding: 8px 16px;
+                text-decoration: none;
+                border-radius: 6px;
+                border: 1px solid grey;
+            }
+                .paginate-area .pagination-box li a:hover {
+                    background-color: #d4d5d2;
+                }
+            .paginate-area .pagination-box li.active a {
+                background-color: #d7bb6c;
+            }
+
 
 /*----- product details slider start ----*/
 .pro-large-img {

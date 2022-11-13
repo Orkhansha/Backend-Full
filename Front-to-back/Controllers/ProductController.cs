@@ -41,7 +41,7 @@ namespace Front_to_back.Controllers
         public IActionResult Detail(int id, int categoryId)
         {
 
-            Product product = _context.Products.Include(b => b.Comments).Include(b => b.ProductCategories).ThenInclude(bc => bc.Category).Include(b => b.Campaign).FirstOrDefault(b => b.Id == id);
+            Product product = _context.Products.Include(b => b.Comments).Include(b => b.ProductCategories).ThenInclude(bc => bc.Category).Include(pi => pi.ProductImages).Include(b => b.Campaign).FirstOrDefault(b => b.Id == id);
             if (product == null)
             {
                 return NotFound();
@@ -58,7 +58,7 @@ namespace Front_to_back.Controllers
                 relatedProducts = _context.Products.Include(b => b.Comments).Include(b => b.Campaign).Include(b => b.ProductCategories).ThenInclude(bc => bc.Category).Where(b => b.ProductCategories.Any(bc => bc.CategoryId == item.Id)).Skip(1).Take(4).ToList();
             }
 
-            ProductDetailVM bookDetailVM = new ProductDetailVM()
+            ProductDetailVM productDetailVM = new ProductDetailVM()
             {
                 Comments = _context.Comments.Include(c => c.Product).Include(c => c.AppUser).Where(c => c.ProductId == id).ToList(),
                 RelatedProducts = relatedProducts,
@@ -66,7 +66,7 @@ namespace Front_to_back.Controllers
                 Product = product,
             };
 
-            return View(bookDetailVM);
+            return View(productDetailVM);
 
         }
 
@@ -116,10 +116,15 @@ namespace Front_to_back.Controllers
         [HttpPost]
         public async Task<IActionResult> AddComment(Comment comment)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("login", "account");
+
+            }
             AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
             if (user == null)
             {
-                return RedirectToAction("login", "account");
+                return NotFound();
             }
             if (!_context.Products.Any(f => f.Id == comment.ProductId)) return NotFound();
             Comment cmnt = new Comment

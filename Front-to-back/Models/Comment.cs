@@ -10,7 +10,6 @@ namespace Front_to_back.Models
     {
         public int Id { get; set; }
         [Required]
-        [StringLength(maximumLength: 200)]
         public string Message { get; set; }
         [Required]
         public DateTime Date { get; set; }

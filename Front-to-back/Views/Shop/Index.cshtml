@@ -1,6 +1,8 @@
 ﻿@model List<Product>
 @{
     ViewData["Title"] = "Shop";
+      int take = ViewBag.take;
+    int count = (ViewBag.CurrentPage - 1) * take + 1;
 }
 
 <main>
@@ -39,7 +41,7 @@
                                 <ul class="color-list category-tab">
                                     @foreach (Category category in ViewBag.Categories)
                                     {
-                                        <li><a href="@category.Name">@category.Name</a></li>
+                                        <li><a href="@category.Name">@category.Name (@category.ProductCategories.Count)</a></li>
                                     }
 
 
@@ -137,15 +139,6 @@
                                     <div class="top-bar-right">
                                         <div class="product-short">
                                             <p>Sort By : </p>
-                                            @*<p class="d-none" id="getvalue">@ViewBag.id</p>
-                                            <select class="nice-select" id="select">
-                                                <option value="1">Relevance</option>
-                                                <option value="2">Name (A - Z)</option>
-                                                <option value="3">Name (Z - A)</option>
-                                                <option value="4">Price (Low &gt; High)</option>
-                                                <option value="5">Price (High &gt; Low)</option>
-
-                                            </select>*@
                                             <p class="d-none" id="getvalue">@ViewBag.id</p>
                                             <select name="" id="select">
                                                 <option value="1">Default</option>
@@ -157,7 +150,7 @@
                                             </select>
                                         </div>
                                         <div class="product-amount">
-                                            <p>Showing 1–16 of 21 results</p>
+                                            <p>Showing 1–12 of 21 results</p>
                                         </div>
                                     </div>
                                 </div>
@@ -177,13 +170,13 @@
                                     <!-- product grid item start -->
                                     <div class="product-item mb-53">
                                         <div class="product-thumb">
-                                            <a asp-controller="Product" asp-action="Index">
+                                            <a asp-controller="Product" asp-action="detail" asp-route-id="@item.Id">
                                                 <img src="~/assets/img/product/@item.Image" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content">
                                             <h5 class="product-name">
-                                                <a asp-controller="Product" asp-action="Index">@item.Title</a>
+                                                <a asp-controller="Product" asp-action="detail" asp-route-id="@item.Id">@item.Title</a>
                                             </h5>
                                             <div class="price-box">
                                                 <span class="price-regular">$@item.Price</span>
@@ -203,13 +196,13 @@
                                     <!-- product list item start -->
                                     <div class="product-list-item mb-30">
                                         <div class="product-thumb">
-                                            <a asp-controller="Product" asp-action="Index">
+                                            <a asp-controller="Product" asp-action="detail" asp-route-id="@item.Id">
                                                 <img src="~/assets/img/product/@item.Image" alt="product thumb">
                                             </a>
                                         </div>
                                         <div class="product-content-list">
                                             <h5 class="product-name">
-                                                <a asp-controller="Product" asp-action="Index">@item.Title</a>
+                                                <a asp-controller="Product" asp-action="detail" asp-route-id="@item.Id">@item.Title</a>
                                             </h5>
                                             <div class="price-box">
                                                 <span class="price-regular">$@item.Price</span>
@@ -235,32 +228,21 @@
                             }
 
                             <!-- start pagination area -->
-                            <div class="paginatoin-area text-center mt-45">
+                            <div class="paginate-area text-center mt-45 w-100">
                                 <ul class="pagination-box">
+                                    <ul class="pagination justify-content-center my-3">
+                                        <li class="page-item @(ViewBag.Paginate.HasPrevious == false ? "disabled":"")">
+                                            <a class="page-link" asp-action="Index" asp-route-page="@(ViewBag.CurrentPage - 1)">Previous</a>
+                                        </li>
+                                        @for (int i = 1; i <= ViewBag.TotalPage; i++)
+                                        {
+                                            <li class="page-item @(i==ViewBag.CurrentPage ? "disabled":"")"><a class="page-link" asp-action="Index" asp-route-page="@i">@i</a></li>
+                                        }
 
-
-
-
-
-
-                                    <a asp-controller="shop" asp-action="index" asp-route-page="@(ViewBag.CurrentPage-1)" style="pointer-events:@(ViewBag.Currentpage == 1 ? "none" : "");" class="previous page-numbers" title="Pervious Page"><i class="fa-solid fa-angle-left"></i></a>
-                                    @for (int i = 1; i < ViewBag.TotalPage; i++)
-                                    {
-                                        <a class="page-numbers " style="pointer-events:@(ViewBag.CurrentPage == i ? "block" : "");" asp-controller="shop" asp-action="index" asp-route-page="@i">@i</a>
-
-                                    }
-                                    <a asp-controller="shop" asp-action="index" asp-route-page="@(ViewBag.CurrentPage +1)" class="next page-numbers" title="Next Page"><i class="fa-solid fa-angle-right"></i></a>
-
-
-
-
-
-
-
-
-
-
-
+                                        <li class="page-item @(ViewBag.Paginate.HasNext == true ? "":"disabled")">
+                                            <a class="page-link" asp-action="Index" asp-route-page="@(ViewBag.CurrentPage + 1)">Next</a>
+                                        </li>
+                                    </ul>
 
 
 

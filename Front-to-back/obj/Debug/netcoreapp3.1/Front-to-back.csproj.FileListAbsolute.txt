@@ -765,3 +765,4 @@ C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Proj
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.dll
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.pdb
 C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.genruntimeconfig.cache
+C:\Users\ASUS\OneDrive\İş masası\Backend Project\Backend-project\Backend-Project\Front-to-back\obj\Debug\netcoreapp3.1\Front-to-back.csproj.AssemblyReference.cache

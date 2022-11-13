@@ -65,93 +65,21 @@
                                 <nav class="desktop-menu">
                                     <ul>
                                         <li class="active">
-                                            <a asp-controller="Home" asp-action="Index">Home <i class="fa fa-angle-down"></i></a>
-                                            <ul class="dropdown">
-                                                <li><a asp-controller="Home" asp-action="Index">Home version 01</a></li>
-                                                <li><a asp-controller="Home" asp-action="IndexTwo">Home version 02</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="active">
-                                            <a asp-area="AdminArea" asp-controller="Dashboard" asp-action="Index">Adminee <i class="fa fa-angle-down"></i></a>
-                                        </li>
-                                        <li class="static">
-                                            <a href="#">pages <i class="fa fa-angle-down"></i></a>
-                                            <ul class="megamenu dropdown">
-                                                <li class="mega-title">
-                                                    <a href="#">column 01</a>
-                                                    <ul>
-                                                        <li><a asp-controller="Shop" asp-action="Index">shop grid left sidebar</a></li>
-                                                        <li><a asp-controller="Shop" asp-action="GridRight">shop grid right sidebar</a></li>
-                                                        <li><a asp-controller="Shop" asp-action="GridFull3">shop grid full 3 col</a></li>
-                                                        <li><a asp-controller="Shop" asp-action="GridFull4">shop grid full 4 col</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mega-title">
-                                                    <a href="#">column 02</a>
-                                                    <ul>
-                                                        <li><a asp-controller="Product" asp-action="Index">product details</a></li>
-                                                        <li><a asp-controller="Product" asp-action="Affiliate">product details affiliate</a></li>
-                                                        <li><a asp-controller="Product" asp-action="Variable">product details variable</a></li>
-                                                        <li><a asp-controller="Product" asp-action="Group">product details group</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mega-title">
-                                                    <a href="#">column 03</a>
-                                                    <ul>
-                                                        <li><a asp-controller="Basket" asp-action="Index">cart</a></li>
-                                                        <li><a asp-controller="Basket" asp-action="Checkout">checkout</a></li>
-                                                        <li><a asp-controller="Basket" asp-action="Compare">compare</a></li>
-                                                        <li><a asp-controller="Basket" asp-action="Wishlist">wishlist</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="mega-title">
-                                                    <a href="#">column 04</a>
-                                                    <ul>
-                                                        <li><a asp-controller="Profile" asp-action="Index">my-account</a></li>
-                                                        <li><a asp-controller="Account" asp-action="Login">login</a></li>
-                                                        <li><a asp-controller="Account" asp-action="Register">register</a></li>
-                                                        <li><a asp-controller="Contact" asp-action="Index">contact us</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
+                                            <a asp-controller="Home" asp-action="Index">Home </a>
+
                                         </li>
                                         <li>
                                             <a asp-controller="Shop" asp-action="Index">shop <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown">
-                                                <li>
-                                                    <a href="#">shop grid layout <i class="fa fa-angle-right"></i></a>
-                                                    <ul class="dropdown">
-                                                        <li><a asp-controller="Shop" asp-action="Index">shop grid left sidebar</a></li>
-                                                        <li><a asp-controller="Shop" asp-action="GridRight">shop grid right sidebar</a></li>
-                                                        <li><a asp-controller="Shop" asp-action="GridFull3">shop grid full 3 col</a></li>
-                                                        <li><a asp-controller="Shop" asp-action="GridFull4">shop grid full 4 col</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a asp-controller="Shop" asp-action="ListLeft">shop list layout <i class="fa fa-angle-right"></i></a>
-                                                    <ul class="dropdown">
-                                                        <li><a asp-controller="Shop" asp-action="ListLeft">shop list left sidebar</a></li>
-                                                        <li><a asp-controller="Shop" asp-action="ListRight">shop list right sidebar</a></li>
-                                                        <li><a asp-controller="Shop" asp-action="ListFull">shop list full width</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li>
-                                                    <a asp-controller="Product" asp-action="Index">products details <i class="fa fa-angle-right"></i></a>
-                                                    <ul class="dropdown">
-                                                        <li><a asp-controller="Product" asp-action="Index">product details</a></li>
-                                                        <li><a asp-controller="Product" asp-action="Affiliate">product details affiliate</a></li>
-                                                        <li><a asp-controller="Product" asp-action="Variable">product details variable</a></li>
-                                                        <li><a asp-controller="Product" asp-action="Group">product details group</a></li>
-                                                    </ul>
-                                                </li>
+                                                <li><a asp-controller="Shop" asp-action="Index">shop grid left sidebar</a></li>
+                                                <li><a asp-controller="Basket" asp-action="Index">cart</a></li>
+                                                <li><a asp-controller="Basket" asp-action="Checkout">checkout</a></li>
                                             </ul>
                                         </li>
                                         <li>
                                             <a asp-controller="Blog" asp-action="Index">Blog <i class="fa fa-angle-down"></i></a>
                                             <ul class="dropdown">
                                                 <li><a asp-controller="Blog" asp-action="Index">blog left sidebar</a></li>
-                                                <li><a asp-controller="Blog" asp-action="BlogRight">blog right sidebar</a></li>
-                                                <li><a asp-controller="Blog" asp-action="NoSidebar">blog grid no sidebar</a></li>
                                                 <li><a asp-controller="Blog" asp-action="BlogDetails">blog details</a></li>
                                                 <li><a asp-controller="Blog" asp-action="BlogAudio">blog details audio</a></li>
                                                 <li><a asp-controller="Blog" asp-action="BlogVideo">blog details video</a></li>

@@ -42,7 +42,7 @@
                                 <div class="product-large-slider mb-20">
 
                                     <div class="pro-large-img img-zoom">
-                                        <img src="~/assets/img/@Model.Products.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="" />
+                                        <img src="~/assets/img/product/@Model.Products.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="" />
                                     </div>
 
 
@@ -51,7 +51,7 @@
                                 <div class="pro-nav slick-row-5">
                                     @foreach (var item in Model.Products.ProductImages.Where(m => m.IsMain))
                                     {
-                                        <div class="pro-nav-thumb"><img src="~/assets/img/@item.Image" alt="" /></div>
+                                        <div class="pro-nav-thumb"><img src="~/assets/img/product/@item.Image" alt="" /></div>
 
                                     }
                                    
